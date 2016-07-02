@@ -31,12 +31,12 @@ error_checking <- function(csv, out_curr) {
 
 #' This function will convert between currencies.
 #' @author Carlos Couce
-#' @param csv - file with spending expenses
+#' @param dataframe - file with spending expenses
 #' @param out_curr - all the currencies in the csv will
 #'                          be converted to this output currency
 #' @return csv - generate a column at the far right of the csv
 #'               with the desired output_currency and a running total
-#' @example convert("my-summer-expenses", "USD")
+#' @example convert(my-summer-expenses, "USD")
 #' @export
 convert <- function(csv, out_curr) {
   error_checking(csv, out_curr)
@@ -51,4 +51,5 @@ convert <- function(csv, out_curr) {
     csv[counter, 5] <- final
   }
   write.table(csv, "New_Ouput")
+  return(csv)
 }
